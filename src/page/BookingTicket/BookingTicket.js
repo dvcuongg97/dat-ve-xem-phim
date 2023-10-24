@@ -192,40 +192,41 @@ export default function Checkout() {
           <div>
             {/* MODAL1 START*/}
             {modalState && (
-              <div class="modal__popup z-50 p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
-                <div class="relative w-full md:max-w-md max-h-full">
-                  <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
-                    <div class="p-6 w-full  text-center shadow-xl shadow-black">
+              <div className="modal__popup z-50 p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
+                <div className="relative w-full md:max-w-md max-h-full">
+                  <div className="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                    <div className="p-6 w-full  text-center shadow-xl shadow-black">
                       <svg
-                        class="mx-auto mb-4 text-gray-400 w-12 h-12 dark:text-gray-200"
-                        aria-hidden="true"
+                        className="mx-auto mb-4 text-gray-400 w-12 h-12 dark:text-gray-200"
+                        ariaHidden="true"
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
                         viewBox="0 0 20 20"
                       >
                         <path
                           stroke="currentColor"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
                           d="M10 11V6m0 8h.01M19 10a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
                         />
                       </svg>
-                      <h3 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400 capitalize text-center">
+
+                      <h3 className="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400 capitalize text-center">
                         bạn chưa đăng nhập!
                       </h3>
                       <div className="flex-col md:grid grid-cols-2 gap-9">
                         <button
                           onClick={() => navigate("/login")}
                           type="button"
-                          class="text-white md:mb-0 mb-3 capitalize bg-red-600 hover:bg-red-800  font-medium rounded-lg text-sm  px-5 py-2.5 text-center mr-2"
+                          className="text-white md:mb-0 mb-3 capitalize bg-red-600 hover:bg-red-800  font-medium rounded-lg text-sm  px-5 py-2.5 text-center mr-2"
                         >
                           đăng nhập
                         </button>
                         <button
                           onClick={() => setModal(!modalState)}
                           type="button"
-                          class="text-gray-500 text-center capitalize bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600"
+                          className="text-gray-500 text-center capitalize bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600"
                         >
                           Hủy Bỏ
                         </button>
@@ -239,12 +240,12 @@ export default function Checkout() {
             {/*  */}
             {/* MODAL2 START */}
             {modalState2 && (
-              <div class="modal__popup z-50 p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
-                <div class="relative w-full md:max-w-md max-h-full">
-                  <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
-                    <div class="p-6 w-full  text-center shadow-xl shadow-black">
+              <div className="modal__popup z-50 p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
+                <div className="relative w-full md:max-w-md max-h-full">
+                  <div className="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                    <div className="p-6 w-full  text-center shadow-xl shadow-black">
                       <svg
-                        class="mx-auto mb-4 text-gray-400 w-12 h-12 dark:text-gray-200"
+                        classname="mx-auto mb-4 text-gray-400 w-12 h-12 dark:text-gray-200"
                         aria-hidden="true"
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
@@ -252,20 +253,21 @@ export default function Checkout() {
                       >
                         <path
                           stroke="currentColor"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
+                          strokelinecap="round"
+                          strokelinejoin="round"
+                          strokewidth="{2}"
                           d="M10 11V6m0 8h.01M19 10a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
                         />
                       </svg>
-                      <h3 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400 capitalize text-center">
+
+                      <h3 className="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400 capitalize text-center">
                         bạn chưa chọn ghế!
                       </h3>
                       <div className="flex justify-center">
                         <button
                           onClick={() => setModal2(!modalState2)}
                           type="button"
-                          class="text-gray-500 text-center capitalize bg-red-500 hover:bg-red-400 focus:ring-4 focus:outline-none focus:ring-gray-200 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600"
+                          className="text-gray-500 text-center capitalize bg-red-500 hover:bg-red-400 focus:ring-4 focus:outline-none focus:ring-gray-200 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600"
                         >
                           OK
                         </button>

@@ -48,11 +48,9 @@ export default function SearchTicket(props) {
               setMaLichChieu("");
             }}
             id="countries"
-            class="border-none cursor-pointer  text-sm font-medium p-2.5 focus:rounded-lg"
+            className="border-none cursor-pointer  text-sm font-medium p-2.5 focus:rounded-lg"
           >
-            <option selected disabled>
-              Chọn Phim
-            </option>
+            <option>Chọn Phim</option>
             {arrPhim.map((phim, index) => {
               return (
                 <option key={index} value={phim.maPhim}>
@@ -75,7 +73,7 @@ export default function SearchTicket(props) {
               );
             }}
             id="countries2"
-            class="border-none cursor-pointer text-gray-900 text-sm font-medium p-2.5 focus:rounded-lg"
+            className="border-none cursor-pointer text-gray-900 text-sm font-medium p-2.5 focus:rounded-lg"
           >
             <option>Chọn Rạp</option>
 
@@ -97,9 +95,9 @@ export default function SearchTicket(props) {
               setMaLichChieu(event.target.value);
             }}
             id="countries"
-            class="border-none focus:rounded-lg cursor-pointer text-gray-900 text-sm font-medium p-2.5 "
+            className="border-none focus:rounded-lg cursor-pointer text-gray-900 text-sm font-medium p-2.5 "
           >
-            <option selected>Lịch Chiếu</option>
+            <option>Lịch Chiếu</option>
 
             {dataCumRap.map((cumRap) => {
               return cumRap?.map((rap) => {

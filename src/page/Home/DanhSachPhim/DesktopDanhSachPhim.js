@@ -50,7 +50,7 @@ export default class DanhSachPhimDesktop extends Component {
             <div className="img-hover-tut">
               <img src={item.hinhAnh} alt={item.hinhAnh} />
               <div>
-                <i data-star={item.danhGia / 2}></i>
+                <i datastar={item.danhGia / 2}></i>
               </div>
               <div className="img-overlay">
                 <div

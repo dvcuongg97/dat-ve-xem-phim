@@ -37,8 +37,8 @@ export default function Footer() {
         backgroundPosition: "center",
       }}
     >
-      <footer class="w-fullbg-opacity-80 p-6 pt-12 text-white">
-        <div class="max-w-[940px] mx-auto ">
+      <footer className="w-fullbg-opacity-80 p-6 pt-12 text-white">
+        <div className="max-w-[940px] mx-auto ">
           <div className="grid md:grid-cols-3 grid-cols-1 m-12">
             <div className="hidden md:grid grid-cols-2">
               <div className="text-sm">
@@ -107,6 +107,7 @@ export default function Footer() {
             <img
               className="w-24 h-auto mx-auto mb-3 md:mb-0 md:mr-2"
               src="../image/Footer/f26.jpg"
+              alt="..."
             />
 
             <div className="text-xs md:px-0 px-6 mb-3 md:mb-0 md:mr-2">
@@ -126,6 +127,7 @@ export default function Footer() {
             <img
               className="w-36 md:m-0 mx-auto mb-3 h-auto "
               src="../image/Footer/f27.png"
+              alt="..."
             />
           </div>
         </div>

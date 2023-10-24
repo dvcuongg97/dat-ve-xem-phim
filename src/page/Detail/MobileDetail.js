@@ -117,12 +117,12 @@ export default function MobileDetail() {
     return (
       <div>
         <div className="detail-bottom">
-          <div class="my-4 border-b border-gray-200 dark:border-gray-700">
+          <div className="my-4 border-b border-gray-200 dark:border-gray-700">
             <div className="flex justify-center pb-3">
               <ul
-                class="flex justify-around w-full text-sm font-medium text-center"
+                className="flex justify-around w-full text-sm font-medium text-center"
                 id="myTab"
-                data-tabs-toggle="#myTabContent"
+                dataTabsToggle="#myTabContent"
                 role="tablist"
               >
                 <button

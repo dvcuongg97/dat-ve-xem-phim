@@ -9,7 +9,11 @@ export default function TinTuc() {
           <div className="flex justify-center mb-6">
             <div className="flex flex-col w-[50%] items-center p-3">
               <div className="w-full mb-4 ">
-                <img className="rounded-md" src="./image/news/useall1.png" />
+                <img
+                  className="rounded-md"
+                  alt="..."
+                  src="./image/news/useall1.png"
+                />
               </div>
               <div className="flex flex-col ">
                 <p className="text-black text-lg font-bold leading-tight mb-2">
@@ -24,7 +28,11 @@ export default function TinTuc() {
             </div>
             <div className="flex flex-col w-[50%] items-center p-3">
               <div className="w-full mb-4">
-                <img className="rounded-md" src="./image/news/useall2.png" />
+                <img
+                  className="rounded-md"
+                  alt="..."
+                  src="./image/news/useall2.png"
+                />
               </div>
               <div className="flex flex-col ">
                 <p className="text-black text-lg font-bold leading-tight mb-2 capitalize">
@@ -43,6 +51,7 @@ export default function TinTuc() {
           <div className="flex justify-center mb-1">
             <img
               className="w-24 h-24 mr-1 rounded-md"
+              alt="..."
               src="./image/news/qc1.jpg"
             />
             <p className="text-gray-500 font-medium text-base leading-tight">
@@ -52,6 +61,7 @@ export default function TinTuc() {
           <div className="flex justify-center mb-1">
             <img
               className="w-24 h-24 mr-1 rounded-md"
+              alt="..."
               src="./image/news/qc2.png"
             />
             <p className="text-gray-500 font-medium text-base leading-tight">
@@ -61,6 +71,7 @@ export default function TinTuc() {
           <div className="flex justify-center mb-1">
             <img
               className="w-24 h-24 mr-1 rounded-md"
+              alt="..."
               src="./image/news/qc3.jpg"
             />
             <p className="text-gray-500 font-medium text-base leading-tight">
@@ -70,6 +81,7 @@ export default function TinTuc() {
           <div className="flex justify-center mb-1">
             <img
               className="w-24 h-24 mr-1 rounded-md"
+              alt="..."
               src="./image/news/qc4.png"
             />
             <p className="text-gray-500 font-medium text-base leading-tight">
@@ -94,7 +106,11 @@ export default function TinTuc() {
           <div className="grid grid-cols-1 md:grid-cols-2 mb-6 gap-6 p-3">
             <div>
               <div className="mb-4 ">
-                <img className="rounded-md" src="./image/news/latmatnews.png" />
+                <img
+                  className="rounded-md"
+                  alt="..."
+                  src="./image/news/latmatnews.png"
+                />
               </div>
               <div className="flex flex-col ">
                 <p className="text-black text-lg font-bold leading-tight mb-2">
@@ -109,7 +125,11 @@ export default function TinTuc() {
             </div>
             <div>
               <div className="mb-4">
-                <img className="rounded-md" src="./image/news/mortalnews.png" />
+                <img
+                  className="rounded-md"
+                  alt="..."
+                  src="./image/news/mortalnews.png"
+                />
               </div>
               <div className="flex flex-col ">
                 <p className="text-black text-lg font-bold leading-tight mb-2 capitalize">
@@ -138,7 +158,11 @@ export default function TinTuc() {
           <div className=" grid grid-cols-1 md:grid-cols-2 mb-6 gap-6 p-3">
             <div>
               <div className="mb-4">
-                <img className="rounded-md" src="./image/news/tintuc1.png" />
+                <img
+                  className="rounded-md"
+                  alt="..."
+                  src="./image/news/tintuc1.png"
+                />
               </div>
               <div className="flex flex-col ">
                 <p className="text-black text-lg font-bold leading-tight mb-2">
@@ -153,7 +177,11 @@ export default function TinTuc() {
             </div>
             <div>
               <div className="mb-4">
-                <img className="rounded-md" src="./image/news/tintuc2.png" />
+                <img
+                  className="rounded-md"
+                  alt="..."
+                  src="./image/news/tintuc2.png"
+                />
               </div>
               <div className="flex flex-col ">
                 <p className="text-black text-lg font-bold leading-tight mb-2">
@@ -180,7 +208,11 @@ export default function TinTuc() {
           <div className=" grid grid-cols-1 md:grid-cols-2 mb-6 gap-6 p-3">
             <div>
               <div className="mb-4">
-                <img className="rounded-md" src="./image/news/khuyenmai1.jpg" />
+                <img
+                  className="rounded-md"
+                  alt="..."
+                  src="./image/news/khuyenmai1.jpg"
+                />
               </div>
               <div className="flex flex-col">
                 <p className="text-black text-lg font-bold leading-tight mb-2">
@@ -194,7 +226,11 @@ export default function TinTuc() {
             </div>
             <div>
               <div className="mb-4">
-                <img className="rounded-md" src="./image/news/khuyenmai2.jpg" />
+                <img
+                  className="rounded-md"
+                  alt="..."
+                  src="./image/news/khuyenmai2.jpg"
+                />
               </div>
               <div className="flex flex-col ">
                 <p className="text-black text-lg font-bold leading-tight mb-2">
@@ -214,26 +250,24 @@ export default function TinTuc() {
   ];
 
   return (
-    <>
-      <div className="max-w-[940px] w-full mx-auto ">
-        <div
-          className="hidden md:block"
-          style={{
-            backgroundImage: "url(./image/shadow.png)",
-            backgroundSize: "100%",
-            maxWidth: "768x",
-            width: "100%",
-            height: "120px",
-            margin: "auto",
-          }}
-        ></div>
-        <Tabs
-          id="tinTuc"
-          className="cursor-pointer mb-6"
-          centered={true}
-          items={item}
-        />
-      </div>
-    </>
+    <div className="max-w-[940px] w-full mx-auto ">
+      <div
+        className="hidden md:block"
+        style={{
+          backgroundImage: "url(./image/shadow.png)",
+          backgroundSize: "100%",
+          maxWidth: "768x",
+          width: "100%",
+          height: "120px",
+          margin: "auto",
+        }}
+      ></div>
+      <Tabs
+        id="tinTuc"
+        className="cursor-pointer mb-6"
+        centered={true}
+        items={item}
+      />
+    </div>
   );
 }
