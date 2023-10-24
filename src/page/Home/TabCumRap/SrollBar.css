@@ -1,0 +1,20 @@
+/* width */
+.tabCumRap::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+/* Track */
+.tabCumRap::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+.tabCumRap::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+/* Handle on hover */
+.tabCumRap::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}

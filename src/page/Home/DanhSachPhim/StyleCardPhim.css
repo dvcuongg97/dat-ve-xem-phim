@@ -1,0 +1,157 @@
+.transition,
+.img-hover-tut:before,
+.img-hover-tut:after,
+.img-hover-tut .img-overlay:before,
+.img-hover-tut .img-overlay:after {
+    transition: all .4s ease;
+}
+
+.card-phim {
+    width: 200px;
+    height: 360px;
+    margin: 10px;
+    border: 15px;
+    box-shadow: 1px 1px 2px #ffffff
+}
+
+.card-phim:hover {
+    box-shadow: none
+}
+
+.img-hover-tut {
+    height: 300px;
+    width: 100%;
+    border-radius: 5px;
+    position: relative;
+    overflow: hidden;
+    margin: 5% auto;
+}
+
+.img-hover-tut img {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+}
+
+.img-hover-tut:before,
+.img-hover-tut:after {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    height: 50%;
+    width: 50%;
+    opacity: 0;
+    background: rgb(251, 66, 38);
+    transform: rotate(90deg);
+    transform-origin: 100% 100%;
+}
+
+.img-hover-tut:after {
+    top: initial;
+    left: initial;
+    right: 0;
+    bottom: 0;
+    transform-origin: 0 0;
+}
+
+.img-hover-tut .img-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.img-hover-tut .img-overlay:before,
+.img-hover-tut .img-overlay:after {
+    position: absolute;
+    content: "";
+    top: 0;
+    right: 0;
+    height: 50%;
+    width: 50%;
+    opacity: 0;
+    background: rgb(251, 66, 38);
+    transform: rotate(-90deg);
+    transform-origin: 0 100%;
+}
+
+.img-hover-tut .img-overlay:after {
+    top: initial;
+    right: initial;
+    left: 0;
+    bottom: 0;
+    transform-origin: 100% 0;
+}
+
+.img-hover-tut:hover:before,
+.img-hover-tut:hover:after,
+.img-hover-tut:hover .img-overlay:before,
+.img-hover-tut:hover .img-overlay:after {
+    opacity: .4;
+    transform: rotate(0deg);
+}
+
+
+.button-play {
+    height: 48px;
+    width: 48px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border: none;
+    opacity: 0;
+    z-index: 1;
+    transform: translate(-50%, -50%);
+    transition: all .2s;
+    cursor: pointer;
+}
+
+.img-hover-tut:hover .button-play {
+    opacity: 1;
+}
+
+.button-play:hover .button-img {
+    opacity: 0.6;
+}
+
+/* phim content */
+
+.phim-content {
+    /* padding: 15px 0; */
+    width: 100%;
+    text-align: center;
+    position: relative;
+    font-weight: 500;
+    color: #000;
+}
+
+.button-chitiet {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    border-radius: 5px;
+    opacity: 0;
+    background: rgb(251, 66, 38);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    font-size: 20px;
+    color: #eee;
+    cursor: pointer;
+}
+
+.card-phim:hover .button-chitiet {
+    opacity: 1;
+    transition: all 0.5;
+}
+
+.button-chitiet:hover {
+    background: rgb(255, 120, 100);
+}
+
+/*  */

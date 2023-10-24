@@ -1,0 +1,19 @@
+.jss57 {
+    left: 50%;
+    width: 100%;
+    bottom: 0;
+    margin: auto;
+    position: absolute;
+    max-width: 940px;
+    padding: 20px 0;
+    transform: translate(-50%, 50%);
+    box-shadow: 0 0 10px rgb(0 0 0 / 30%);
+    border-radius: 5px;
+    background-color: #fff;
+    z-index: 2;
+}
+
+.jss66 {
+    flex: calc(70% / 4);
+
+}
