@@ -1,9 +1,8 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { NavLink, useParams } from "react-router-dom";
 import { getDetailMovie, getThongTinLichChieuPhim } from "../../api/api";
 import { Progress, Rate } from "antd";
 import {
-  PlayCircleOutlined,
   CalendarOutlined,
   ProfileOutlined,
   AliwangwangOutlined,
@@ -29,6 +28,10 @@ const onChange = (key) => {
 const conicColors = { "0%": "#87d068", "50%": "#ffe58f", "100%": "#ffccc7" };
 
 export default function Detail() {
+  let [tabLichChieu, setTabLichChieu] = useState(true);
+  let [tabChiTiet, setTabChiTiet] = useState(false);
+  let [tabBinhLuan, setTabBinhLuan] = useState(false);
+
   let params = useParams();
   let { detailMovie, dataLichChieu } = useSelector(
     (state) => state.detailMovieSlice
@@ -89,18 +92,17 @@ export default function Detail() {
                       <p className="text-green-500 font-medium">
                         {cumRap.tenCumRap}
                       </p>
-                      <p className="text-slate-300">{cumRap.diaChi}</p>
+                      <p className="text-slate-500">{cumRap.diaChi}</p>
                     </div>
                   </div>
-                  <div className=" flex-col">
+                  <>
                     {cumRap.lichChieuPhim
                       ?.slice(0, 6)
                       .map((lichChieu, index) => {
                         return (
-                          <>
+                          <div key={index} className=" flex-col mb-3">
                             <NavLink
                               to={`/booking/${lichChieu.maLichChieu}`}
-                              key={index}
                               className="px-3 py-1 mr-2 text-center rounded font-medium bg-orange-500"
                             >
                               Đặt Vé
@@ -110,10 +112,10 @@ export default function Detail() {
                                 "dddd, DD MMMM, YYYY"
                               )}
                             </span>
-                          </>
+                          </div>
                         );
                       })}
-                  </div>
+                  </>
                 </div>
               );
             })}
@@ -197,75 +199,112 @@ export default function Detail() {
         }}
       >
         <div className="detail-bottom">
-          <Tabs id="lichChieu" defaultActiveKey="tab1" centered="true">
-            <Tabs.TabPane
-              tab={
-                <span className="text-slate-300 hover:text-orange-600 font-medium text-lg">
+          <div
+            id="lichChieu"
+            class="mb-4 border-b border-gray-200 dark:border-gray-700"
+          >
+            <div className="flex justify-center">
+              <ul
+                class="flex justify-around w-1/2 text-sm font-medium text-center"
+                id="myTab"
+                data-tabs-toggle="#myTabContent"
+                role="tablist"
+              >
+                <button
+                  onClick={() => {
+                    setTabLichChieu(true);
+                    setTabChiTiet(false);
+                    setTabBinhLuan(false);
+                  }}
+                  className="block text-slate-300 hover:text-orange-600 font-medium text-lg"
+                >
                   <CalendarOutlined className="mr-1" />
                   Lịch Chiếu
-                </span>
-              }
-              key={"tab1"}
-            >
-              <Tabs
-                tabPosition="left"
-                className="overflow-hidden bg-white p-4 rounded-md"
-                defaultActiveKey="1"
-                items={renderTabsLichChieu()}
-                onChange={onChange}
-              />
-            </Tabs.TabPane>
-            <Tabs.TabPane
-              tab={
-                <span className="text-slate-300 hover:text-orange-600 font-medium text-lg">
+                </button>
+
+                <button
+                  onClick={() => {
+                    setTabChiTiet(true);
+                    setTabLichChieu(false);
+                    setTabBinhLuan(false);
+                  }}
+                  className="block text-slate-300 hover:text-orange-600 font-medium text-lg"
+                >
                   <ProfileOutlined />
                   Chi Tiết
-                </span>
-              }
-              key={"tab2"}
-            >
-              <div className="p-6  text-white">
-                <div className="grid grid-cols-2  gap-3">
-                  <div>
-                    <p className="text-lg ">
-                      <span className="font-medium text-lg ">Tên Phim:</span>{" "}
-                      {detailMovie.tenPhim}{" "}
-                    </p>
+                </button>
 
-                    <p className="text-lg">
-                      <span className="font-medium text-lg ">Trạng thái:</span>{" "}
-                      {detailMovie.dangChieu ? "Đang Chiếu" : "Sắp Chiếu"}{" "}
-                    </p>
-                    <p className="text-lg">
-                      <span className="font-medium text-lg ">Khởi Chiếu:</span>{" "}
-                      {moment(detailMovie.ngayKhoiChieu).format(
-                        "MMMM Do YYYY, h:mm:ss a"
-                      )}{" "}
-                    </p>
-                    {/* <p className="text-lg">
-                      <span className="font-medium text-lg ">Tên Phim:</span>{" "}
-                      {detailMovie.tenPhim}{" "}
-                    </p> */}
-                  </div>
-                  <div className="flex flex-col">
-                    <span className="font-medium text-lg">Nội Dung</span>
-                    <p className="text-lg">{detailMovie.moTa}</p>
-                  </div>
-                </div>
-              </div>
-            </Tabs.TabPane>
-            <Tabs.TabPane
-              tab={
-                <span className="text-slate-300 hover:text-orange-600 font-medium text-lg">
+                <button
+                  onClick={() => {
+                    setTabBinhLuan(true);
+                    setTabLichChieu(false);
+                    setTabChiTiet(false);
+                  }}
+                  className="block text-slate-300 hover:text-orange-600 font-medium text-lg"
+                >
                   <AliwangwangOutlined />
                   Bình Luận
-                </span>
-              }
-              key={"tab3"}
-            >
-              <CommentMovie />
-            </Tabs.TabPane>
-          </Tabs>
+                </button>
+              </ul>
+            </div>
+          </div>
+          <div id="myTabContent">
+            {tabLichChieu && (
+              <div>
+                <Tabs
+                  tabPosition="left"
+                  className="overflow-hidden  bg-gray-50 p-4 rounded-md"
+                  defaultActiveKey="1"
+                  items={renderTabsLichChieu()}
+                  onChange={onChange}
+                />
+              </div>
+            )}
+
+            <div id="dashboard" role="tabpanel" aria-labelledby="dashboard-tab">
+              {tabChiTiet && (
+                <div className="p-6  text-white">
+                  <div className="grid grid-cols-2  gap-3">
+                    <div className="grid grid-cols-12">
+                      <div className="col-span-3">
+                        <span className="block font-medium text-lg text-green-500 ">
+                          Tên Phim:
+                        </span>{" "}
+                        <span className="block font-medium text-lg text-green-500 ">
+                          Trạng thái:
+                        </span>{" "}
+                        <span className="block font-medium text-lg text-green-500 ">
+                          Khởi Chiếu:
+                        </span>{" "}
+                      </div>
+                      <div className="col-span-9">
+                        <p className="text-lg ">{detailMovie.tenPhim} </p>
+                        <p className="text-lg text-justify">
+                          {detailMovie.dangChieu ? "Đang Chiếu" : "Sắp Chiếu"}{" "}
+                        </p>
+                        <p className="text-lg">
+                          {/* {moment(detailMovie.ngayKhoiChieu).format(
+                          "MMMM Do YYYY, h:mm:ss a"
+                        )}{" "} */}
+                          {moment(detailMovie.ngayKhoiChieu)
+                            .locale("vi")
+                            .format("DD MMMM, YYYY")}
+                        </p>
+                      </div>
+                    </div>
+                    <div className="flex flex-col">
+                      <span className="font-medium text-lg">Nội Dung</span>
+                      <p className="text-lg">{detailMovie.moTa}</p>
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
+
+            <div id="settings" role="tabpanel" aria-labelledby="settings-tab">
+              {tabBinhLuan && <CommentMovie />}
+            </div>
+          </div>
         </div>
       </div>
     );

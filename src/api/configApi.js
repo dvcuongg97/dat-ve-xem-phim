@@ -24,7 +24,7 @@ export const https = axios.create({
 https.interceptors.request.use(
   function (config) {
     store.dispatch(setLoadingOn());
-    console.log("api request");
+    // console.log("api request");
     return config;
   },
   function (error) {
@@ -36,7 +36,7 @@ https.interceptors.response.use(
   function (response) {
     store.dispatch(setLoadingOff());
 
-    console.log("api respone");
+    // console.log("api respone");
     return response;
   },
   function (error) {

@@ -56,7 +56,7 @@ export default function MobileTabCumRap(props) {
                       <p className="text-base text-gray-700 capitalize font-medium mb-1">
                         {moment(lichChieu.ngayChieuGioChieu)
                           .locale("vi")
-                          .format("dddd, DD MMMM, YYYY")}
+                          .format("DD MMMM, YYYY")}
                       </p>
                     </div>
                   );
