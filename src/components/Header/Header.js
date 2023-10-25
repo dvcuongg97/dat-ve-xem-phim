@@ -67,7 +67,7 @@ export default function Header(props) {
 
   return (
     <header>
-      <nav className="bg-white md:opacity-80 shadow-md shadow-black border-gray-200 dark:bg-gray-900 md:fixed z-10 w-full top-0 left-0">
+      <nav className="bg-white md:opacity-80 shadow-md shadow-black border-gray-200 dark:bg-gray-900 md:fixed z-10  h-20 w-full top-0 left-0">
         <div className=" flex flex-wrap items-center justify-between p-4">
           <NavLink to={"/"}>
             <img
@@ -79,9 +79,12 @@ export default function Header(props) {
           <button
             data-collapse-toggle="navbar-default"
             type="button"
-            className="inline-flex items-center mr-[1%] p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+            className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
             aria-controls="navbar-default"
             aria-expanded="false"
+            style={{
+              marginRight: "1%",
+            }}
           >
             <span className="sr-only">Open main menu</span>
             <svg

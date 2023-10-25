@@ -263,7 +263,7 @@ export default function Detail() {
 
             <div id="dashboard" role="tabpanel" aria-labelledby="dashboard-tab">
               {tabChiTiet && (
-                <div className="p-6  text-white">
+                <div className="p-6 text-white">
                   <div className="grid grid-cols-2  gap-3">
                     <div className="grid grid-cols-12">
                       <div className="col-span-3">

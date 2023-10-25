@@ -24,7 +24,7 @@ export default function UngDung() {
       }}
       id="ungDung"
     >
-      <div className="max-w-[940px] w-full mx-auto">
+      <div style={{ maxWidth: 940 }} className="w-full mx-auto">
         <div className=" grid md:grid-cols-2 grid-cols-1 gap-20">
           <div className="flex items-center h-full">
             <div>
@@ -37,7 +37,7 @@ export default function UngDung() {
               </p>
               <br />
 
-              <button className="px-6 py-5 bg-red-500 hover:bg-red-700 transition-all duration-[300] rounded font-medium uppercase">
+              <button className="px-6 py-5 bg-red-500 hover:bg-red-700 transition-all duration-300 rounded font-medium uppercase">
                 App miễn phí - Tải về ngay!
               </button>
               <br />

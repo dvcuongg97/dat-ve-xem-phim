@@ -120,7 +120,14 @@ export default class DanhSachPhimDesktop extends Component {
     return (
       <>
         <div className="container mx-auto">
-          <div id="lichChieu" className="w-[80vw] max-w-[940px] mx-auto mb-9">
+          <div
+            style={{
+              width: "80vw",
+              maxWidth: 940,
+            }}
+            id="lichChieu"
+            className="mx-auto mb-9"
+          >
             <ModalVideo
               channel="youtube"
               autoplay

@@ -7,7 +7,7 @@ export default function TinTuc() {
       <div className="md:grid md:grid-cols-3 flex-col ">
         <div className="col-span-2">
           <div className="flex justify-center mb-6">
-            <div className="flex flex-col w-[50%] items-center p-3">
+            <div className="flex flex-col w-1/2 items-center p-3">
               <div className="w-full mb-4 ">
                 <img
                   className="rounded-md"
@@ -26,7 +26,7 @@ export default function TinTuc() {
                 </p>
               </div>
             </div>
-            <div className="flex flex-col w-[50%] items-center p-3">
+            <div className="flex flex-col w-1/2 items-center p-3">
               <div className="w-full mb-4">
                 <img
                   className="rounded-md"

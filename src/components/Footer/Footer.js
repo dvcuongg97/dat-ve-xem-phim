@@ -35,10 +35,11 @@ export default function Footer() {
       style={{
         backgroundImage: `url('../image/background/bgFooter.jpg')`,
         backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
       }}
     >
-      <footer className="w-fullbg-opacity-80 p-6 pt-12 text-white">
-        <div className="max-w-[940px] mx-auto ">
+      <footer className="w-full p-6 pt-12 text-white">
+        <div style={{ maxWidth: 940, margin: "0 auto" }}>
           <div className="grid md:grid-cols-3 grid-cols-1 m-12">
             <div className="hidden md:grid grid-cols-2">
               <div className="text-sm">
@@ -53,7 +54,7 @@ export default function Footer() {
               </div>
             </div>
 
-            <div className="hidden md:grid grid-cols-5 w-[60%] mx-auto">
+            <div className="hidden md:grid grid-cols-5 w-2/3 mx-auto">
               {logoFooter.map((item, index) => {
                 return (
                   <Fragment key={index}>
