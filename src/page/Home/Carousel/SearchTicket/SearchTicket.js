@@ -8,7 +8,7 @@ import { BASE_URL, configHeaders } from "../../../../api/configApi";
 
 export default function SearchTicket(props) {
   let [arrPhim, setArrPhim] = useState([]);
-  let [maPhim, setMaPhim] = useState("");
+  // let [maPhim, setMaPhim] = useState("");
   let [dataHeThongRapChieu, setDataHeThongRapChieu] = useState({});
   let [dataCumRap, setDataCumRap] = useState([]);
   let [maLichChieu, setMaLichChieu] = useState("");
@@ -24,28 +24,24 @@ export default function SearchTicket(props) {
       });
   }, []);
 
-  useEffect(() => {
-    axios({
-      url: `${BASE_URL}/api/QuanLyRap/LayThongTinLichChieuPhim?MaPhim=${maPhim}`,
-      headers: configHeaders(),
-      method: "GET",
-    })
-      .then((res) => {
-        // console.log(res);
-        setDataHeThongRapChieu(res.data.content);
-      })
-      .catch((err) => {});
-  }, [maPhim]);
-
   return (
     <div className="jss57 hidden md:block">
       <div className="flex justify-around">
         <div className="border-r-2 px-2">
           <select
             onChange={(event) => {
-              setMaPhim(event.target.value);
-              setDataCumRap([]);
-              setMaLichChieu("");
+              axios({
+                url: `${BASE_URL}/api/QuanLyRap/LayThongTinLichChieuPhim?MaPhim=${event.target.value}`,
+                headers: configHeaders(),
+                method: "GET",
+              })
+                .then((res) => {
+                  // console.log(res);
+                  setDataHeThongRapChieu(res.data.content);
+                  setDataCumRap([]);
+                  setMaLichChieu("");
+                })
+                .catch((err) => {});
             }}
             id="countries"
             className="border-none cursor-pointer  text-sm font-medium p-2.5 focus:rounded-lg"
