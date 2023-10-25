@@ -22,19 +22,21 @@ export default function MobileDetail() {
   let [tabLichChieu, setTabLichChieu] = useState(true);
   let [tabChiTiet, setTabChiTiet] = useState(false);
   let [tabBinhLuan, setTabBinhLuan] = useState(false);
+  // let [detailMovie, setDetailMovie] = useState({});
+  // let [dataLichChieu, setDataLichChieu] = useState({});
 
   let { detailMovie, dataLichChieu } = useSelector(
     (state) => state.detailMovieSlice
   );
-
   let dispatch = useDispatch();
+
   let params = useParams();
 
   useEffect(() => {
     getDetailMovie(params.maPhim)
       .then((res) => {
-        // console.log("detailMovie", res);
         dispatch(setDataDetailMovie(res.data.content));
+        // setDataDetailMovie(res.data.content);
       })
       .catch((err) => {
         // console.log(err);
@@ -43,9 +45,8 @@ export default function MobileDetail() {
   useEffect(() => {
     getThongTinLichChieuPhim(params.maPhim)
       .then((res) => {
-        // console.log("lichChieu", res);
         dispatch(setDataLichChieu(res.data.content));
-        dispatch(setDataDetailMovie(res.data.content));
+        // setDataLichChieu(res.data.content);
       })
       .catch((err) => {
         // console.log(err);
@@ -122,7 +123,7 @@ export default function MobileDetail() {
               <ul
                 className="flex justify-around w-full text-sm font-medium text-center"
                 id="myTab"
-                dataTabsToggle="#myTabContent"
+                datatabstoggle="#myTabContent"
                 role="tablist"
               >
                 <button

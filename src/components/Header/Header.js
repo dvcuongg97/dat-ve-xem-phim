@@ -66,88 +66,86 @@ export default function Header(props) {
   };
 
   return (
-    <>
-      <header>
-        <nav className="bg-white md:opacity-80 shadow-md shadow-black border-gray-200 dark:bg-gray-900 md:fixed z-10 w-full top-0 left-0">
-          <div className=" flex flex-wrap items-center justify-between p-4">
-            <NavLink to={"/"}>
-              <img
-                style={{ height: 50 }}
-                src="../image/headTixLogo.png"
-                alt="..."
+    <header>
+      <nav className="bg-white md:opacity-80 shadow-md shadow-black border-gray-200 dark:bg-gray-900 md:fixed z-10 w-full top-0 left-0">
+        <div className=" flex flex-wrap items-center justify-between p-4">
+          <NavLink to={"/"}>
+            <img
+              style={{ height: 50 }}
+              src="../image/headTixLogo.png"
+              alt="..."
+            />
+          </NavLink>
+          <button
+            datacollapsetoggle="navbar-default"
+            type="button"
+            className="inline-flex items-center mr-[1%] p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+            aria-controls="navbar-default"
+            aria-expanded="false"
+          >
+            <span className="sr-only">Open main menu</span>
+            <svg
+              className="w-5 h-5 text-orange-500"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 17 14"
+            >
+              <path
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="{2}"
+                d="M1 1h15M1 7h15M1 13h15"
               />
-            </NavLink>
-            <button
-              datacollapsetoggle="navbar-default"
-              type="button"
-              className="inline-flex items-center mr-[1%] p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-              aria-controls="navbar-default"
-              aria-expanded="false"
-            >
-              <span className="sr-only">Open main menu</span>
-              <svg
-                className="w-5 h-5 text-orange-500"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 17 14"
-              >
-                <path
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="{2}"
-                  d="M1 1h15M1 7h15M1 13h15"
-                />
-              </svg>
-            </button>
-            <div
-              className="hidden w-screen md:w-auto md:flex md:justify-between md:items-center transition duration-1000"
-              id="navbar-default"
-            >
-              <div className="md:hidden flex justify-center items-center">
-                {renderUserLogin()}
-              </div>
-
-              <ul className="bg-gray-50 md:bg-white font-medium flex flex-col text-center p-4 md:p-0 mt-4 border border-gray-100 rounded-lg md:flex-row md:space-x-8 md:mt-0 md:border-0 dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-                <li>
-                  <a
-                    href="#lichChieu"
-                    className="block py-2 pl-3 pr-4 text-gray-900 rounded md:bg-transparent md:hover:text-orange-500  md:p-0 dark:text-white md:dark:text-blue-500"
-                  >
-                    Lịch Chiếu
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#cumRap"
-                    className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-orange-500 md:active:text-orange-500 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
-                  >
-                    Cụm Rạp
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#tinTuc"
-                    className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-orange-500 md:active:text-orange-500 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
-                  >
-                    Tin Tức
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#ungDung"
-                    className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-orange-500 md:active:text-orange-500 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
-                  >
-                    Ứng Dụng
-                  </a>
-                </li>
-              </ul>
+            </svg>
+          </button>
+          <div
+            className="hidden w-screen md:w-auto md:flex md:justify-between md:items-center transition duration-1000"
+            id="navbar-default"
+          >
+            <div className="md:hidden flex justify-center items-center">
+              {renderUserLogin()}
             </div>
-            <div className="hidden md:block">{renderUserLogin()}</div>
+
+            <ul className="bg-gray-50 md:bg-white font-medium flex flex-col text-center p-4 md:p-0 mt-4 border border-gray-100 rounded-lg md:flex-row md:space-x-8 md:mt-0 md:border-0 dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+              <li>
+                <a
+                  href="#lichChieu"
+                  className="block py-2 pl-3 pr-4 text-gray-900 rounded md:bg-transparent md:hover:text-orange-500  md:p-0 dark:text-white md:dark:text-blue-500"
+                >
+                  Lịch Chiếu
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#cumRap"
+                  className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-orange-500 md:active:text-orange-500 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                >
+                  Cụm Rạp
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#tinTuc"
+                  className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-orange-500 md:active:text-orange-500 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                >
+                  Tin Tức
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#ungDung"
+                  className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-orange-500 md:active:text-orange-500 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                >
+                  Ứng Dụng
+                </a>
+              </li>
+            </ul>
           </div>
-        </nav>
-      </header>
-    </>
+          <div className="hidden md:block">{renderUserLogin()}</div>
+        </div>
+      </nav>
+    </header>
   );
 }

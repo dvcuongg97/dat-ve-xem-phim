@@ -57,7 +57,7 @@ const FormLogin = () => {
       </Divider>
 
       <div className="flex justify-center mb-12">
-        <img className="w-12 lg:w-24" src="image/headTixLogo.png" />
+        <img className="w-12 lg:w-24" src="image/headTixLogo.png" alt="..." />
       </div>
       <Form
         onFinish={onFinish}

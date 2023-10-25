@@ -51,7 +51,11 @@ export default function DangKy() {
           Đăng Ký
         </Divider>
         <div className="flex justify-center mb-3">
-          <img className="md:h-auto w-12" src="image/headTixLogo.png" />
+          <img
+            className="md:h-auto w-12"
+            src="image/headTixLogo.png"
+            alt="..."
+          />
         </div>
         <Form
           name="dangKy"

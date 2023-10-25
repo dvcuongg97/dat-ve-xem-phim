@@ -1,6 +1,6 @@
-import React, { Fragment, useEffect, useRef, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import { getDataPhongVeApi } from "../../api/api";
-import { NavLink, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import {
   clearArrGheDangDat,
@@ -10,7 +10,7 @@ import {
 import _ from "lodash";
 import "./styleDanhSachGhe.css";
 import axios from "axios";
-import { BASE_URL, TOKEN_CYBERSOFT, https } from "../../api/configApi";
+import { BASE_URL, TOKEN_CYBERSOFT } from "../../api/configApi";
 import { CheckOutlined, CloseOutlined, UserOutlined } from "@ant-design/icons";
 import { message } from "antd";
 import { userLocalStorage } from "../../api/localService";
@@ -65,7 +65,7 @@ export default function Checkout() {
             className={`ghe ${classGheDaDat} ${classGheVip} ${classGheDangDat}  ${classGheUserDat} hover:ring-2 hover:ring-green-600`}
           >
             {ghe.daDat ? (
-              classGheUserDat != "" ? (
+              classGheUserDat !== "" ? (
                 <UserOutlined style={{ marginBottom: 5, fontWeight: "bold" }} />
               ) : (
                 <CloseOutlined
@@ -122,6 +122,7 @@ export default function Checkout() {
                   {userInfo ? (
                     <a
                       target="_blank"
+                      rel="noreferrer"
                       className="block cursor-pointer px-8 py-3 bg-green-500 hover:bg-green-400 capitalize text-lg font-medium"
                       href={"/userinfo"}
                     >
@@ -198,7 +199,7 @@ export default function Checkout() {
                     <div className="p-6 w-full  text-center shadow-xl shadow-black">
                       <svg
                         className="mx-auto mb-4 text-gray-400 w-12 h-12 dark:text-gray-200"
-                        ariaHidden="true"
+                        aria-hidden="true"
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
                         viewBox="0 0 20 20"

@@ -17,7 +17,7 @@ const videoModalSlice = createSlice({
           index = i;
         }
       }
-      if (index == -1) {
+      if (index === -1) {
         index = trailer?.lastIndexOf("/");
       }
       state.urlTrailer = trailer?.slice(index + 1, trailer.length);

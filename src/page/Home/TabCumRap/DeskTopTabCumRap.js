@@ -1,13 +1,16 @@
-import React, { Fragment, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { getHeThongRap } from "../../../api/api";
 import { Popover, Tabs } from "antd";
 import moment from "moment/moment";
 import { NavLink } from "react-router-dom";
 import "moment/locale/vi";
 import "./SrollBar.css";
+// import { useDispatch, useSelector } from "react-redux";
+// import { setArrHeThongRap } from "../../../redux/tabCumRapSlice";
 const onChange = (key) => {
   // console.log(key);
 };
+
 export default function TabCumRap(props) {
   let [arrHeThongRap, setArrHeThongRap] = useState([]);
   useEffect(() => {
@@ -20,11 +23,24 @@ export default function TabCumRap(props) {
         // console.log(err);
       });
   }, []);
+
+  // const dispatch = useDispatch();
+  // let { arrHeThongRap } = useSelector((state) => state.tabCumRapSlice);
+  // useEffect(() => {
+  //   getHeThongRap()
+  //     .then((res) => {
+  //       // console.log(res);
+  //       dispatch(setArrHeThongRap(res.data.content));
+  //     })
+  //     .catch((err) => {
+  //       // console.log(err);
+  //     });
+  // }, []);
   //
   let renderLichChieu = (danhSachPhim) => {
-    return danhSachPhim.map((phim, index) => {
+    return danhSachPhim.map((phim) => {
       return (
-        <Fragment key={index}>
+        <div key={phim.maPhim}>
           <div className="flex space-x-5 p-3 border-b">
             <div>
               <div className="flex items-center pb-2">
@@ -40,40 +56,38 @@ export default function TabCumRap(props) {
               </div>
               <div>
                 <div>
-                  {phim?.lstLichChieuTheoPhim
-                    ?.slice(0, 6)
-                    .map((lichChieu, index) => {
-                      return (
-                        <div key={index} className="mb-3 flex">
-                          <NavLink
-                            style={{
-                              backgroundColor: "rgb(251, 66, 38)",
-                            }}
-                            className=" text-white hover:text-green-500 py-1 px-3 mr-2 border rounded-md  font-medium capitalize"
-                            to={`/booking/${lichChieu.maLichChieu}`}
-                          >
-                            Đặt Vé
-                          </NavLink>
-                          <p className="text-base text-gray-700 capitalize font-medium mb-1">
-                            {moment(lichChieu.ngayChieuGioChieu)
-                              .locale("vi")
-                              .format("dddd, DD MMMM, YYYY")}
-                          </p>
-                        </div>
-                      );
-                    })}
+                  {phim?.lstLichChieuTheoPhim?.slice(0, 6).map((lichChieu) => {
+                    return (
+                      <div key={lichChieu.maLichChieu} className="mb-3 flex">
+                        <NavLink
+                          style={{
+                            backgroundColor: "rgb(251, 66, 38)",
+                          }}
+                          className=" text-white hover:text-green-500 py-1 px-3 mr-2 border rounded-md  font-medium capitalize"
+                          to={`/booking/${lichChieu.maLichChieu}`}
+                        >
+                          Đặt Vé
+                        </NavLink>
+                        <p className="text-base text-gray-700 capitalize font-medium mb-1">
+                          {moment(lichChieu.ngayChieuGioChieu)
+                            .locale("vi")
+                            .format("dddd, DD MMMM, YYYY")}
+                        </p>
+                      </div>
+                    );
+                  })}
                 </div>
               </div>
             </div>
           </div>
-        </Fragment>
+        </div>
       );
     });
   };
   let renderTabCumRap = () => {
-    return arrHeThongRap.map((heThongRap, index) => {
+    return arrHeThongRap.map((heThongRap) => {
       return {
-        key: index,
+        key: heThongRap.maHeThongRap,
         label: (
           <div className="border-b pb-2">
             <img

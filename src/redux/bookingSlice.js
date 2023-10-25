@@ -1,6 +1,4 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { datVeApi, getDataPhongVeApi } from "../api/api";
-import { ThongTinDatVe } from "../_core/models/ThongTinDatVe";
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   dataPhongVe: {},

@@ -40,7 +40,7 @@ https.interceptors.response.use(
     return response;
   },
   function (error) {
-    return Promise.reject(error);
     store.dispatch(setLoadingOff());
+    return Promise.reject(error);
   }
 );

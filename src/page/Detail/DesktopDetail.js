@@ -201,11 +201,11 @@ export default function Detail() {
         <div className="detail-bottom">
           <div
             id="lichChieu"
-            class="mb-4 border-b border-gray-200 dark:border-gray-700"
+            className="mb-4 border-b border-gray-200 dark:border-gray-700"
           >
             <div className="flex justify-center">
               <ul
-                class="flex justify-around w-1/2 text-sm font-medium text-center"
+                className="flex justify-around w-1/2 text-sm font-medium text-center"
                 id="myTab"
                 data-tabs-toggle="#myTabContent"
                 role="tablist"

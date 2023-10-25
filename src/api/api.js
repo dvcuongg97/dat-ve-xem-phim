@@ -1,6 +1,4 @@
-import axios from "axios";
-import { BASE_URL, configHeaders, https } from "./configApi";
-import { ThongTinDatVe } from "../_core/models/ThongTinDatVe";
+import { https } from "./configApi";
 
 export const getBannerMovie = () => {
   return https.get("/api/QuanLyPhim/LayDanhSachBanner");
