@@ -35,9 +35,9 @@ export default function Checkout() {
         dispatch(setDataPhongVe(res.data.content));
       })
       .catch((err) => {
-        // console.log(err);
+        console.log(err);
       });
-  }, []);
+  }, [params.maLichChieu]);
 
   let renderSeats = () => {
     return danhSachGhe?.map((ghe, index) => {
@@ -237,8 +237,6 @@ export default function Checkout() {
                 </div>
               </div>
             )}
-            {/* END */}
-            {/*  */}
             {/* MODAL2 START */}
             {modalState2 && (
               <div className="modal__popup z-50 p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
@@ -246,7 +244,7 @@ export default function Checkout() {
                   <div className="relative bg-white rounded-lg shadow dark:bg-gray-700">
                     <div className="p-6 w-full  text-center shadow-xl shadow-black">
                       <svg
-                        classname="mx-auto mb-4 text-gray-400 w-12 h-12 dark:text-gray-200"
+                        className="mx-auto mb-4 text-gray-400 w-12 h-12 dark:text-gray-200"
                         aria-hidden="true"
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
@@ -254,9 +252,9 @@ export default function Checkout() {
                       >
                         <path
                           stroke="currentColor"
-                          strokelinecap="round"
-                          strokelinejoin="round"
-                          strokewidth="{2}"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
                           d="M10 11V6m0 8h.01M19 10a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
                         />
                       </svg>
@@ -278,7 +276,6 @@ export default function Checkout() {
                 </div>
               </div>
             )}
-            {/* END */}
             <div className="text-center font-bold text-xl border-b-2 py-20 px-3">
               <span>
                 {arrGheDangDat
@@ -377,7 +374,7 @@ export default function Checkout() {
                   setModal2(!modalState2);
                 }
               }}
-              className="absolute bottom-0 w-full h-14 bg-green-500 hover:bg-green-400 text-white font-bold "
+              className="absolute left-0 bottom-0 w-full h-14 bg-green-500 hover:bg-green-400 text-white font-bold "
             >
               ĐẶT VÉ
             </button>

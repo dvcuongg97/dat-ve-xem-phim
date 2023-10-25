@@ -12,7 +12,6 @@ import videoModalSlice from "./redux/videoModalSlice";
 import detailMovieSlice from "./redux/detailMovieSlice";
 import danhSachPhimSlice from "./redux/danhSachPhimSlice";
 import spinnerSlice from "./redux/spinnerSlice";
-import tabCumRapSlice from "./redux/tabCumRapSlice";
 //
 export let store = configureStore({
   reducer: {
@@ -22,7 +21,6 @@ export let store = configureStore({
     detailMovieSlice,
     danhSachPhimSlice,
     spinnerSlice,
-    tabCumRapSlice,
   },
 });
 
