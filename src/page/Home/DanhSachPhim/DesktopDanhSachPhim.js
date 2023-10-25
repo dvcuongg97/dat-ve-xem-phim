@@ -118,28 +118,19 @@ export default class DanhSachPhimDesktop extends Component {
       ],
     };
     return (
-      <>
-        <div className="container mx-auto">
-          <div
-            style={{
-              width: "80vw",
-              maxWidth: 940,
-            }}
-            id="lichChieu"
-            className="mx-auto mb-9"
-          >
-            <ModalVideo
-              channel="youtube"
-              autoplay
-              isOpen={this.state.isOpen}
-              videoId={this.state.trailerPhim}
-              onClose={() => this.setState({ isOpen: false })}
-            />
+      <div className="container mx-auto">
+        <div id="lichChieu" className="w-[80vw] max-w-[940px] mx-auto mb-9">
+          <ModalVideo
+            channel="youtube"
+            autoplay
+            isOpen={this.state.isOpen}
+            videoId={this.state.trailerPhim}
+            onClose={() => this.setState({ isOpen: false })}
+          />
 
-            <Slider {...settings}>{this.renderCardPhim()}</Slider>
-          </div>
+          <Slider {...settings}>{this.renderCardPhim()}</Slider>
         </div>
-      </>
+      </div>
     );
   }
 }

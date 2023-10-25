@@ -24,7 +24,7 @@ export default function UngDung() {
       }}
       id="ungDung"
     >
-      <div style={{ maxWidth: 940 }} className="w-full mx-auto">
+      <div className="max-w-[940px] w-full mx-auto">
         <div className=" grid md:grid-cols-2 grid-cols-1 gap-20">
           <div className="flex items-center h-full">
             <div>

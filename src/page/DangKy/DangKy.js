@@ -46,7 +46,7 @@ export default function DangKy() {
       >
         <NavLink
           to={"/"}
-          className="md:absolute fixed top-3 md:-top-5 right-3  md:-right-5  text-gray-300 text-5xl hover:text-orange-500"
+          className="md:absolute fixed top-[10px] right-[10px] md:top-[-20px] md:right-[-20px] text-gray-300 text-5xl hover:text-orange-500"
         >
           <CloseCircleOutlined />
         </NavLink>
@@ -69,7 +69,7 @@ export default function DangKy() {
           onFinishFailed={onFinishFailed}
           autoComplete="off"
         >
-          <div style={{ width: "70%" }} className="mx-auto">
+          <div className="w-[70%] mx-auto">
             <span className="text-white font-medium">Tài Khoản</span>
             <Form.Item
               name="taiKhoan"
@@ -81,7 +81,7 @@ export default function DangKy() {
               <Input className="rounded-md" placeholder="Tài Khoản..." />
             </Form.Item>
           </div>
-          <div style={{ width: "70%" }} className=" mx-auto">
+          <div className="w-[70%] mx-auto">
             <span className="text-white font-medium">Mật Khẩu</span>
             <Form.Item
               name="matKhau"
@@ -97,7 +97,7 @@ export default function DangKy() {
             </Form.Item>
           </div>
 
-          <div style={{ width: "70%" }} className=" mx-auto">
+          <div className="w-[70%] mx-auto">
             <span className="text-white font-medium">E-mail</span>
             <Form.Item
               name="email"
@@ -116,7 +116,7 @@ export default function DangKy() {
             </Form.Item>
           </div>
 
-          <div style={{ width: "70%" }} className=" mx-auto">
+          <div className="w-[70%] mx-auto">
             <span className="text-white font-medium">Số Điện Thoại</span>
             <Form.Item
               name="soDt"
@@ -136,7 +136,7 @@ export default function DangKy() {
             </Form.Item>
           </div>
 
-          <div style={{ width: "70%" }} className="mx-auto">
+          <div className="w-[70%] mx-auto">
             <span className="text-white font-medium">Họ và Tên</span>
             <Form.Item
               name="hoTen"
@@ -149,7 +149,7 @@ export default function DangKy() {
             </Form.Item>
           </div>
 
-          <div style={{ width: "70%" }} className="mx-auto">
+          <div className="w-[70%] mx-auto">
             <Form.Item wrapperCol={{ span: 24 }}>
               <Button
                 className="text-white font-medium "

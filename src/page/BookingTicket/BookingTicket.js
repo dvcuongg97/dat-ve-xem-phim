@@ -84,10 +84,7 @@ export default function Checkout() {
 
   return (
     <>
-      <div
-        style={{ height: 82 }}
-        className="hidden md:block w-full bg-white"
-      ></div>
+      <div className="hidden md:block h-20 w-full bg-white"></div>
       <div className="flex-col lg:grid lg:grid-cols-3 gap-4 mt-9">
         {/* SEATS */}
         <div
@@ -97,10 +94,7 @@ export default function Checkout() {
           }}
           className="col-span-2 mb-9 overflow-x-scroll tabCumRap"
         >
-          <div
-            style={{ minWidth: 768 }}
-            className="relative  md:w-full md:h-full"
-          >
+          <div className="relative min-w-[768px] md:w-full md:h-full">
             <div className="flex-col items-center justify-center">
               <div className="flex justify-between mb-6">
                 <div className="flex">
@@ -251,13 +245,7 @@ export default function Checkout() {
             )}
             {/* MODAL2 START */}
             {modalState2 && (
-              <div
-                style={{
-                  // h-[calc(100%-1rem)]
-                  height: "calc(100% - 1rem/* 16px */)",
-                }}
-                className="modal__popup z-50 p-4 overflow-x-hidden overflow-y-auto md:inset-0 max-h-full"
-              >
+              <div className="modal__popup z-50 p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
                 <div className="relative w-full md:max-w-md max-h-full">
                   <div className="relative bg-white rounded-lg shadow dark:bg-gray-700">
                     <div className="p-6 w-full  text-center shadow-xl shadow-black">

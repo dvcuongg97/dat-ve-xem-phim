@@ -3,7 +3,6 @@ import React, { useRef } from "react";
 import { Carousel } from "antd";
 import { LeftOutlined, RightOutlined } from "@ant-design/icons";
 import SearchTicket from "./SearchTicket/SearchTicket";
-import "./Cargit reset --softousel.css";
 
 export default function HomeCarousel() {
   let ref = useRef();
@@ -16,7 +15,7 @@ export default function HomeCarousel() {
     ];
     return banner.map((item, index) => {
       return (
-        <div key={index} className="crs h-1/3 w-full object-fill">
+        <div key={index} className="md:h-[760px] h-1/3 w-full object-fill">
           <img className="w-full h-full object-fill" src={item} alt={item} />
         </div>
       );
@@ -28,10 +27,7 @@ export default function HomeCarousel() {
       <div className="relative">
         <SearchTicket />
         <Carousel
-          // style={{
-          //   maxWidth: "2000px",
-          // }}
-          className="crs h-3/5 w-full"
+          className="md:h-[760px] h-3/5 w-full max-w-[2000px]"
           autoplay={true}
           dots={false}
           ref={ref}
@@ -42,10 +38,7 @@ export default function HomeCarousel() {
           onClick={() => {
             ref.current.prev();
           }}
-          className="hidden md:block absolute top-1/2 text-orange-500 text-5xl"
-          style={{
-            left: "-1%",
-          }}
+          className="hidden md:block absolute top-1/2 left-[1%] text-orange-500 text-5xl"
         >
           <LeftOutlined />
         </button>
@@ -53,10 +46,7 @@ export default function HomeCarousel() {
           onClick={() => {
             ref.current.next();
           }}
-          className="hidden md:block base absolute top-1/2 text-orange-500 text-5xl"
-          style={{
-            right: "-1%",
-          }}
+          className="hidden md:block base absolute top-1/2 right-[1%] text-orange-500 text-5xl"
         >
           <RightOutlined />
         </button>

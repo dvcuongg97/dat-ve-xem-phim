@@ -39,7 +39,7 @@ export default function Footer() {
       }}
     >
       <footer className="w-full p-6 pt-12 text-white">
-        <div style={{ maxWidth: 940, margin: "0 auto" }}>
+        <div className="max-w-[940px] mx-auto">
           <div className="grid md:grid-cols-3 grid-cols-1 m-12">
             <div className="hidden md:grid grid-cols-2">
               <div className="text-sm">
