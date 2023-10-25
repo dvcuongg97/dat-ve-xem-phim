@@ -3,7 +3,7 @@ import React, { useRef } from "react";
 import { Carousel } from "antd";
 import { LeftOutlined, RightOutlined } from "@ant-design/icons";
 import SearchTicket from "./SearchTicket/SearchTicket";
-import "./Carousel.css";
+import "./Cargit reset --softousel.css";
 
 export default function HomeCarousel() {
   let ref = useRef();
@@ -28,9 +28,9 @@ export default function HomeCarousel() {
       <div className="relative">
         <SearchTicket />
         <Carousel
-          style={{
-            maxWidth: 2000,
-          }}
+          // style={{
+          //   maxWidth: "2000px",
+          // }}
           className="crs h-3/5 w-full"
           autoplay={true}
           dots={false}
@@ -55,7 +55,7 @@ export default function HomeCarousel() {
           }}
           className="hidden md:block base absolute top-1/2 text-orange-500 text-5xl"
           style={{
-            right: "-1",
+            right: "-1%",
           }}
         >
           <RightOutlined />
