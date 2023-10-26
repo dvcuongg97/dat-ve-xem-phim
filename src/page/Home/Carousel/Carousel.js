@@ -23,7 +23,7 @@ export default function HomeCarousel() {
   };
   return (
     <>
-      <div className="h-0 md:h-20 "></div>
+      <div className="h-0 md:h-[82px] bg-white"></div>
       <div className="relative">
         <SearchTicket />
         <Carousel

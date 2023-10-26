@@ -67,8 +67,8 @@ export default function Header(props) {
 
   return (
     <header>
-      <nav className="bg-white md:opacity-80 shadow-md shadow-black border-gray-200 dark:bg-gray-900 md:fixed z-10  h-20 w-full top-0 left-0">
-        <div className=" flex flex-wrap items-center justify-between p-4">
+      <nav className="bg-white md:opacity-80 shadow-md shadow-black border-gray-200 dark:bg-gray-900 md:fixed z-10  h-82 w-full top-0 left-0">
+        <div className="flex flex-wrap p-[1.5%] items-center justify-between md:p-4">
           <NavLink to={"/"}>
             <img
               style={{ height: 50 }}
@@ -104,7 +104,7 @@ export default function Header(props) {
             </svg>
           </button>
           <div
-            className="hidden w-screen md:w-auto md:flex md:justify-between md:items-center transition duration-1000"
+            className="hidden z-10 bg-white w-full h-auto md:w-auto md:flex md:justify-between md:items-center transition duration-1000"
             id="navbar-default"
           >
             <div className="md:hidden flex justify-center items-center">
