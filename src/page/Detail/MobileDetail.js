@@ -89,20 +89,20 @@ export default function MobileDetail() {
                       .map((lichChieu, index) => {
                         return (
                           <div key={index} className="flex-col mb-3">
-                            <div className="w-full flex justify-between items-center">
-                              <span className="block text-green-800 font-bold capitalize mb-1">
-                                {moment(detailMovie.ngayKhoiChieu)
-                                  .locale("vi")
-                                  .format("DD MMMM, YYYY")}
-                              </span>
-                              <NavLink
-                                to={`/booking/${lichChieu.maLichChieu}`}
-                                className="block px-3 py-1 mr-2 text-center rounded font-medium bg-orange-500"
-                              >
-                                Đặt Vé
-                              </NavLink>
-                            </div>
+                            {/* <div className="w-full flex justify-between items-center"> */}
+                            <span className="block text-center text-green-800 font-bold capitalize mb-1">
+                              {moment(detailMovie.ngayKhoiChieu)
+                                .locale("vi")
+                                .format("DD MMMM, YYYY")}
+                            </span>
+                            <NavLink
+                              to={`/booking/${lichChieu.maLichChieu}`}
+                              className="block px-3 py-1 mr-2 text-center rounded font-medium bg-orange-500"
+                            >
+                              Đặt Vé
+                            </NavLink>
                           </div>
+                          // </div>
                         );
                       })}
                   </div>
