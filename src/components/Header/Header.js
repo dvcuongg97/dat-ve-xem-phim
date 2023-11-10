@@ -1,13 +1,9 @@
 import React from "react";
-import { useSelector } from "react-redux";
 import { NavLink, useNavigate } from "react-router-dom";
 import { userLocalStorage } from "../../api/localService";
 
 export default function Header(props) {
-  //
-  let { userInfo } = useSelector((state) => {
-    return state.userInfoSlice;
-  });
+  let userLogin = userLocalStorage.get();
 
   let navigate = useNavigate();
 
@@ -27,7 +23,7 @@ export default function Header(props) {
   let renderUserLogin = () => {
     let classBtn =
       "bg-transparent mr-1 hover:bg-orange-500 text-orange-500 font-semibold hover:text-white py-2 px-4 border border-orange-500 hover:border-transparent rounded transition duration-500";
-    if (userInfo) {
+    if (userLogin) {
       return (
         <div className="md:flex md:items-center">
           <div
@@ -39,12 +35,12 @@ export default function Header(props) {
             <div className="w-12 h-12 mr-3 md:mb-0 mb-2 hover:scale-110">
               <img
                 className="rounded-full"
-                src={`https://i.pravatar.cc/300?u=${userInfo.taiKhoan}`}
+                src={`https://i.pravatar.cc/300?u=${userLogin.taiKhoan}`}
                 alt="..."
               />
             </div>
 
-            <span className="font-medium">{userInfo.hoTen}</span>
+            <span className="font-medium">{userLogin.hoTen}</span>
           </div>
           <button onClick={handleLogout} className={classBtn}>
             <i className="fa fa-sign-out-alt"></i>Đăng Xuất
