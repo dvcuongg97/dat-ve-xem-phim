@@ -2,26 +2,6 @@ html {
     scroll-behavior: smooth;
 }
 
-
-.swiper-pagination-bullet {
-    background-color: rgb(255, 119, 0) !important;
-    width: 12px !important;
-    height: 12px !important;
-}
-
-.swiper-button-prev::after,
-.swiper-button-next::after {
-    color: rgb(255, 119, 0) !important;
-}
-
-.slick-dots li button::before {
-    width: 12px !important;
-    height: 12px !important;
-    content: '' !important;
-    border-radius: 50% !important;
-    background-color: rgb(255, 119, 0) !important;
-}
-
 .jss123>div {
     width: 100%;
     height: 100%;
@@ -31,4 +11,57 @@ html {
 
 .bgdkpage {
     background-image: linear-gradient(to bottom, rgba(20, 50, 93, .9), rgba(8, 22, 48, .9));
+}
+
+.swiper {
+    width: 100%;
+    height: 100%;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+.swiper-slide {
+    /* text-align: center;
+    font-size: 18px;
+    background: #fff;
+    height: calc((100% - 30px) / 2) !important; */
+
+    /* Center slide text vertically */
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    /* margin-right: 0 !important; */
+    margin-top: 0 !important;
+}
+
+.swiper-wrapper {
+    flex-wrap: wrap !important;
+    flex-direction: row !important;
+    justify-content: center !important;
+    align-items: center !important;
+    padding: 30px 0 !important;
+}
+
+.swiper-pagination-bullet {
+    width: var(--swiper-pagination-bullet-width, var(--swiper-pagination-bullet-size, 12px)) !important;
+    height: var(--swiper-pagination-bullet-height, var(--swiper-pagination-bullet-size, 12px)) !important;
+    display: inline-block;
+    border-radius: var(--swiper-pagination-bullet-border-radius, 50%);
+    background: var(--swiper-pagination-bullet-inactive-color, #000);
+    opacity: var(--swiper-pagination-bullet-inactive-opacity, 0.2);
+}
+
+.swiper-pagination-fraction,
+.swiper-pagination-custom,
+.swiper-horizontal>.swiper-pagination-bullets,
+.swiper-pagination-bullets.swiper-pagination-horizontal {
+    bottom: var(--swiper-pagination-bottom, 0px) !important;
+    top: var(--swiper-pagination-top, auto);
+    left: 0;
+    width: 100%;
+}
+
+.swiper-pagination-bullet-active {
+    opacity: var(--swiper-pagination-bullet-opacity, 1);
+    background: #fb4226 !important;
 }

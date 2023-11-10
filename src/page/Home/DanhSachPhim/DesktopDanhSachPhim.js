@@ -1,61 +1,51 @@
-import React, { Component, Fragment } from "react";
-
-import { getArrMovie } from "../../../api/api";
-
+import React from "react";
 import "./StyleCardPhim.css";
 import "./RatingStyle.css";
 import "./TextStyle.css";
 
-import Slider from "react-slick";
-// import { Slider } from "react-slick/dist/react-slick";
+// Import Swiper React components
+import { Swiper, SwiperSlide } from "swiper/react";
 
-import "../../../../node_modules/slick-carousel/slick/slick.css";
-import "../../../../node_modules/slick-carousel/slick/slick-theme.css";
-import "react-slick/dist/react-slick";
+// Import Swiper styles
+import "../../../../node_modules/swiper/swiper.css";
+import "../../../../node_modules/swiper/modules/grid.css";
+import "../../../../node_modules/swiper/modules/pagination.css";
 
-import ModalVideo from "react-modal-video";
+// import required modules
+import { Grid, Pagination } from "swiper/modules";
+
 import "../../../../node_modules/react-modal-video/css/modal-video.css";
 import { NavLink } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  setOpenVideoModal,
+  setUrlTrailer,
+} from "../../../redux/videoModalSlice";
+import VideoModal from "../../../components/VideoModal/VideoModal";
 
-export default class DanhSachPhimDesktop extends Component {
-  state = {
-    danhSachPhim: [],
-    isOpen: false,
-    trailerPhim: "",
+export default function DesktopDanhSachPhim() {
+  const dispatch = useDispatch();
+  const { danhSachPhim } = useSelector((state) => state.danhSachPhimSlice);
+
+  const handleTrailer = (phim) => {
+    dispatch(setOpenVideoModal(true));
+    dispatch(setUrlTrailer(phim));
   };
-
-  componentDidMount() {
-    getArrMovie()
-      .then((res) => {
-        // console.log("api data", res);
-        this.setState({ danhSachPhim: res.data.content });
-      })
-      .catch((err) => {
-        // console.log(err);
-      });
-  }
-  renderTrailer(item) {
-    let trailer = item.trailer;
-    this.setState({ isOpen: true });
-    let index = trailer.lastIndexOf("/");
-    let urlTrailer = trailer.slice(index + 1, trailer.length);
-    this.setState({ trailerPhim: urlTrailer });
-  }
-  renderCardPhim = () => {
-    return this.state.danhSachPhim.map((item, index) => {
+  const renderCardPhim = () => {
+    return danhSachPhim?.map((phim, index) => {
       return (
-        <Fragment key={index}>
-          <div className="w-full flex justify-center font-medium text-green-500 mb-24"></div>
+        <SwiperSlide key={index}>
+          {/* <div className="w-full flex justify-center font-medium text-green-500 mb-24"></div> */}
           <div className="card-phim">
             <div className="img-hover-tut">
-              <img src={item.hinhAnh} alt={item.hinhAnh} />
+              <img src={phim.hinhAnh} alt={phim.hinhAnh} />
               <div>
-                <i datastar={item.danhGia / 2}></i>
+                <i datastar={phim.danhGia / 2}></i>
               </div>
               <div className="img-overlay">
                 <div
                   onClick={() => {
-                    this.renderTrailer(item);
+                    handleTrailer(phim);
                   }}
                   className="button-play"
                 >
@@ -66,71 +56,62 @@ export default class DanhSachPhimDesktop extends Component {
             <div className="phim-content">
               <div className="div-ten-phim">
                 <span className="span-c18">TIX</span>
-                {item.tenPhim}
+                {phim.tenPhim}
               </div>
               <div className="button-chitiet">
-                <NavLink to={`movie/${item.maPhim}`}>Mua Vé</NavLink>
+                <NavLink to={`movie/${phim.maPhim}`}>Mua Vé</NavLink>
               </div>
             </div>
           </div>
-        </Fragment>
+        </SwiperSlide>
       );
     });
   };
 
-  render() {
-    const settings = {
-      className: "center",
-      infinite: true,
-      dots: true,
-      slidesToShow: 4,
-      speed: 500,
-      rows: 1,
-      slidesPerRow: 2,
-      slidesToScroll: 2,
-
-      // dots: true,
-      // infinite: true,
-      // speed: 500,
-      // slidesToShow: 3,
-      // slidesToScroll: 3,
-
-      responsive: [
-        {
-          breakpoint: 1050,
-          settings: {
-            infinite: true,
-            dots: true,
-            slidesToShow: 3,
-            speed: 500,
+  return (
+    <>
+      <div id="lichChieu" className="container mx-auto md:mt-12 lg:mt-24">
+        <p className="uppercase text-xl font-bold text-gray-500 text-center">
+          danh sách phim
+        </p>
+        <Swiper
+          slidesPerView={5}
+          grid={{
             rows: 2,
-            slidesPerRow: 1,
-            slidesToScroll: 2,
-          },
-        },
-        {
-          breakpoint: 480,
-          settings: {
-            slidesToShow: 1,
-            slidesToScroll: 1,
-          },
-        },
-      ],
-    };
-    return (
-      <div className="container mx-auto">
-        <div id="lichChieu" className="w-[80vw] max-w-[940px] mx-auto mb-9">
-          <ModalVideo
-            channel="youtube"
-            autoplay
-            isOpen={this.state.isOpen}
-            videoId={this.state.trailerPhim}
-            onClose={() => this.setState({ isOpen: false })}
-          />
-
-          <Slider {...settings}>{this.renderCardPhim()}</Slider>
-        </div>
+          }}
+          // spaceBetween={30}
+          pagination={{
+            clickable: true,
+          }}
+          modules={[Grid, Pagination]}
+          breakpoints={{
+            0: {
+              slidesPerView: 1,
+            },
+            400: {
+              slidesPerView: 2,
+            },
+            639: {
+              slidesPerView: 3,
+            },
+            865: {
+              slidesPerView: 5,
+            },
+            // 1000: {
+            //   slidesPerView: 5,
+            // },
+            // 1500: {
+            //   slidesPerView: 6,
+            // },
+            // 1700: {
+            //   slidesPerView: 7,
+            // },
+          }}
+        >
+          {renderCardPhim()}
+        </Swiper>
+        <VideoModal />
       </div>
-    );
-  }
+    </>
+  );
 }

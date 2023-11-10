@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { NavLink, useParams } from "react-router-dom";
 import { getDetailMovie, getThongTinLichChieuPhim } from "../../api/api";
 import {
@@ -9,10 +9,6 @@ import {
 import { Tabs } from "antd";
 import moment from "moment/moment";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  setDataDetailMovie,
-  setDataLichChieu,
-} from "../../redux/detailMovieSlice";
 import CommentMovie from "./CommentMovie";
 
 const onChange = (key) => {
@@ -22,38 +18,13 @@ export default function MobileDetail() {
   let [tabLichChieu, setTabLichChieu] = useState(true);
   let [tabChiTiet, setTabChiTiet] = useState(false);
   let [tabBinhLuan, setTabBinhLuan] = useState(false);
-  // let [detailMovie, setDetailMovie] = useState({});
-  // let [dataLichChieu, setDataLichChieu] = useState({});
 
-  let { detailMovie, dataLichChieu } = useSelector(
+  const { detailMovie, dataLichChieu } = useSelector(
     (state) => state.detailMovieSlice
   );
-  let dispatch = useDispatch();
 
-  let params = useParams();
-
-  useEffect(() => {
-    getDetailMovie(params.maPhim)
-      .then((res) => {
-        dispatch(setDataDetailMovie(res.data.content));
-        // setDataDetailMovie(res.data.content);
-      })
-      .catch((err) => {
-        // console.log(err);
-      });
-  }, []);
-  useEffect(() => {
-    getThongTinLichChieuPhim(params.maPhim)
-      .then((res) => {
-        dispatch(setDataLichChieu(res.data.content));
-        // setDataLichChieu(res.data.content);
-      })
-      .catch((err) => {
-        // console.log(err);
-      });
-  }, []);
   let renderTabsLichChieu = () => {
-    return dataLichChieu.heThongRapChieu?.map((htr, index) => {
+    return dataLichChieu?.heThongRapChieu?.map((htr, index) => {
       return {
         key: index,
         label: (

@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useMediaQuery } from "react-responsive";
 
-import DanhSachPhimDesktop from "./DesktopDanhSachPhim";
-import MobileDSPhim from "./MobileDanhSachPhim";
+import DesktopDanhSachPhim from "./DesktopDanhSachPhim";
+import MobileDSP from "./MobileDSP";
+import { layDanhSachPhimAction } from "../../../redux/danhSachPhimSlice";
+import { useDispatch } from "react-redux";
 
 const Desktop = ({ children }) => {
   const isDesktop = useMediaQuery({ minWidth: 992 });
@@ -22,16 +24,20 @@ const Mobile = ({ children }) => {
 // };
 
 export default function DanhSachPhim() {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(layDanhSachPhimAction());
+  }, []);
   return (
     <>
       <Desktop>
-        <DanhSachPhimDesktop />
+        <DesktopDanhSachPhim />
       </Desktop>
       <Tablet>
-        <DanhSachPhimDesktop />
+        <DesktopDanhSachPhim />
       </Tablet>
       <Mobile>
-        <MobileDSPhim />
+        <MobileDSP />
       </Mobile>
     </>
   );

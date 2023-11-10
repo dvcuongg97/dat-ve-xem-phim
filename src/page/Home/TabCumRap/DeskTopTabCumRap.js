@@ -1,44 +1,20 @@
-import React, { useEffect, useState } from "react";
-import { getHeThongRap } from "../../../api/api";
+import React from "react";
 import { Popover, Tabs } from "antd";
 import moment from "moment/moment";
 import { NavLink } from "react-router-dom";
 import "moment/locale/vi";
 import "./SrollBar.css";
-// import { useDispatch, useSelector } from "react-redux";
-// import { setArrHeThongRap } from "../../../redux/tabCumRapSlice";
+import { useSelector } from "react-redux";
+
 const onChange = (key) => {
   // console.log(key);
 };
 
 export default function TabCumRap(props) {
-  let [arrHeThongRap, setArrHeThongRap] = useState([]);
-  useEffect(() => {
-    getHeThongRap()
-      .then((res) => {
-        // console.log(res);
-        setArrHeThongRap(res.data.content);
-      })
-      .catch((err) => {
-        // console.log(err);
-      });
-  }, []);
+  const { arrHeThongRap } = useSelector((state) => state.heThongRapSlice);
 
-  // const dispatch = useDispatch();
-  // let { arrHeThongRap } = useSelector((state) => state.tabCumRapSlice);
-  // useEffect(() => {
-  //   getHeThongRap()
-  //     .then((res) => {
-  //       // console.log(res);
-  //       dispatch(setArrHeThongRap(res.data.content));
-  //     })
-  //     .catch((err) => {
-  //       // console.log(err);
-  //     });
-  // }, []);
-  //
   let renderLichChieu = (danhSachPhim) => {
-    return danhSachPhim.map((phim) => {
+    return danhSachPhim?.map((phim) => {
       return (
         <div key={phim.maPhim}>
           <div className="flex space-x-5 p-3 border-b">
@@ -63,7 +39,7 @@ export default function TabCumRap(props) {
                           style={{
                             backgroundColor: "rgb(251, 66, 38)",
                           }}
-                          className=" text-white hover:text-green-500 py-1 px-3 mr-2 border rounded-md  font-medium capitalize"
+                          className="text-center text-white hover:text-green-500 py-1 px-3 mr-2 border rounded-md  font-medium capitalize"
                           to={`/booking/${lichChieu.maLichChieu}`}
                         >
                           Đặt Vé

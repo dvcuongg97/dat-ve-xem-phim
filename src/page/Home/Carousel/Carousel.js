@@ -6,14 +6,14 @@ import SearchTicket from "./SearchTicket/SearchTicket";
 
 export default function HomeCarousel() {
   let ref = useRef();
-  let renderBanner = () => {
-    const banner = [
-      "../image/Banner/bn1.jpg",
-      "../image/Banner/bn2.jpg",
-      "../image/Banner/bn3.jpg",
-      "../image/Banner/bn4.png",
-    ];
-    return banner.map((item, index) => {
+  let bannerRef = useRef([
+    "../image/Banner/bn1.jpg",
+    "../image/Banner/bn2.jpg",
+    "../image/Banner/bn3.jpg",
+    "../image/Banner/bn4.png",
+  ]);
+  const renderBanner = () => {
+    return bannerRef?.current?.map((item, index) => {
       return (
         <div key={index} className="md:h-[760px] h-1/3 w-full object-fill">
           <img className="w-full h-full object-fill" src={item} alt={item} />

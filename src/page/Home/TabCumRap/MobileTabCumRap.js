@@ -1,24 +1,16 @@
-import React, { useEffect, useState } from "react";
-import { getHeThongRap } from "../../../api/api";
+import React from "react";
 import { Popover, Collapse, Tabs } from "antd";
 import moment from "moment/moment";
 import { NavLink } from "react-router-dom";
 import "../../../../node_modules/moment/locale/vi";
+import { useSelector } from "react-redux";
+
 const onChange = (key) => {
   // console.log(key);
 };
+
 export default function MobileTabCumRap(props) {
-  let [arrHeThongRap, setArrHeThongRap] = useState([]);
-  useEffect(() => {
-    getHeThongRap()
-      .then((res) => {
-        // console.log(res);
-        setArrHeThongRap(res.data.content);
-      })
-      .catch((err) => {
-        // console.log(err);
-      });
-  }, []);
+  const { arrHeThongRap } = useSelector((state) => state.heThongRapSlice);
 
   const renderLichChieu = (danhSachPhim) => {
     return danhSachPhim?.map((phim) => {

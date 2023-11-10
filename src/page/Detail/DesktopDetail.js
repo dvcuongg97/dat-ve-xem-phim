@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { NavLink, useParams } from "react-router-dom";
-import { getDetailMovie, getThongTinLichChieuPhim } from "../../api/api";
+import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
 import { Progress, Rate } from "antd";
 import {
   CalendarOutlined,
@@ -10,17 +9,13 @@ import {
 import { Tabs } from "antd";
 import moment from "moment/moment";
 import { useDispatch, useSelector } from "react-redux";
-import { setUrlTrailer, setOpenVideoModal } from "../../redux/videoModalSlice";
+import { setOpenVideoModal } from "../../redux/videoModalSlice";
 
 import "./DesktopStyles.css";
 import "../Home/DanhSachPhim/RatingStyle.css";
 
 import VideoModal from "../../components/VideoModal/VideoModal";
 import CommentMovie from "./CommentMovie";
-import {
-  setDataDetailMovie,
-  setDataLichChieu,
-} from "../../redux/detailMovieSlice";
 
 const onChange = (key) => {
   // console.log(key);
@@ -28,38 +23,13 @@ const onChange = (key) => {
 const conicColors = { "0%": "#87d068", "50%": "#ffe58f", "100%": "#ffccc7" };
 
 export default function Detail() {
+  let dispatch = useDispatch();
   let [tabLichChieu, setTabLichChieu] = useState(true);
   let [tabChiTiet, setTabChiTiet] = useState(false);
   let [tabBinhLuan, setTabBinhLuan] = useState(false);
-
-  let params = useParams();
   let { detailMovie, dataLichChieu } = useSelector(
     (state) => state.detailMovieSlice
   );
-  let dispatch = useDispatch();
-
-  useEffect(() => {
-    getDetailMovie(params.maPhim)
-      .then((res) => {
-        // console.log("detaiMovie", res);
-        dispatch(setUrlTrailer(res.data.content));
-        dispatch(setDataDetailMovie(res.data.content));
-      })
-      .catch((err) => {
-        // console.log(err);
-      });
-  }, []);
-  useEffect(() => {
-    getThongTinLichChieuPhim(params.maPhim)
-      .then((res) => {
-        // console.log("lichChieu", res);
-        dispatch(setDataLichChieu(res.data.content));
-        dispatch(setDataDetailMovie(res.data.content));
-      })
-      .catch((err) => {
-        // console.log(err);
-      });
-  }, []);
 
   let renderTabsLichChieu = () => {
     return dataLichChieu.heThongRapChieu?.map((htr, index) => {
@@ -125,9 +95,9 @@ export default function Detail() {
     });
   };
 
-  let renderDetailMovieTop = () => {
+  let renderContentTop = () => {
     return (
-      <div className="detail-container">
+      <div className="detail-container px-6">
         <div
           className="detail-bg "
           style={{
@@ -190,7 +160,7 @@ export default function Detail() {
     );
   };
 
-  let renderDetailBottom = () => {
+  let renderContentBottom = () => {
     return (
       <div
         style={{
@@ -314,8 +284,8 @@ export default function Detail() {
     <>
       <div style={{ height: 82 }}></div>
       <VideoModal />
-      {renderDetailMovieTop()}
-      {renderDetailBottom()}
+      {renderContentTop()}
+      {renderContentBottom()}
     </>
   );
 }

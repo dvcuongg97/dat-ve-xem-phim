@@ -1,4 +1,15 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { clientAPI } from "../api/api";
+
+export const layDanhSachPhongVeAction = createAsyncThunk(
+  "layDanhSachPhongVeAction",
+  async (maLichChieu) => {
+    const res = await clientAPI.layDanhSachPhongVe(maLichChieu);
+    if (res.status === 200) {
+      return res.data.content;
+    }
+  }
+);
 
 const initialState = {
   dataPhongVe: {},
@@ -17,7 +28,6 @@ const bookingSlice = createSlice({
       let index = state.arrGheDangDat.findIndex(
         (item) => item.maGhe === payload.maGhe
       );
-      // console.log("slice check index ghe", index);
       if (index === -1) {
         state.arrGheDangDat.push(payload);
       } else {
@@ -27,6 +37,11 @@ const bookingSlice = createSlice({
     clearArrGheDangDat: (state, { payload }) => {
       state.arrGheDangDat = payload;
     },
+  },
+  extraReducers: (builder) => {
+    builder.addCase(layDanhSachPhongVeAction.fulfilled, (state, action) => {
+      state.dataPhongVe = action.payload;
+    });
   },
 });
 
