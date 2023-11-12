@@ -1,6 +1,6 @@
-import React, { useEffect, useRef, useState } from "react";
-import { NavLink, useParams } from "react-router-dom";
-import { getDetailMovie, getThongTinLichChieuPhim } from "../../api/api";
+import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
+
 import {
   CalendarOutlined,
   ProfileOutlined,
@@ -8,7 +8,7 @@ import {
 } from "@ant-design/icons";
 import { Tabs } from "antd";
 import moment from "moment/moment";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import CommentMovie from "./CommentMovie";
 
 const onChange = (key) => {

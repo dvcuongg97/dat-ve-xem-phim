@@ -4,7 +4,6 @@ import "./styleDanhSachGhe.css";
 import { useDispatch, useSelector } from "react-redux";
 import { userLocalStorage } from "../../api/localService";
 import { setArrGheDangDat } from "../../redux/bookingSlice";
-import _ from "lodash";
 
 import { CheckOutlined, CloseOutlined, UserOutlined } from "@ant-design/icons";
 
